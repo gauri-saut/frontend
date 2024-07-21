@@ -10,11 +10,14 @@ const App = () => {
 
 
   const fetchData = async () => {
-    
-      const Maindata = await axios.get(NewApi.VITE_API);
+    try {
+      const newdata = await axios.get(NewApi.VITE_API);
+      
 
-      setData(Maindata.data); 
-    
+      setData(newdata.data); 
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
 
